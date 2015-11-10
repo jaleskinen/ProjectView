@@ -81,7 +81,8 @@ p{
 
 td, th {
     border: 1px solid black;
-    color: red; /*Text color*/
+    //color: red; /*Text color*/
+    color: maroon; /*Text color*/
 
 }
 
