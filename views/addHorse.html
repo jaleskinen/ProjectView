@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>-->
+
+        <title>Tallin Hevoset</title>
+        <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+ 
+        
+    </head>
+    <body>
+         <div class="entry">
+            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+        </div>
+         
+        <div class="omaentry">
+            <nav id="head">
+            </nav>
+            <section>
+                <h1 class="oma_h1">Lisää hevonen</h1>
+                <form method="post" enctype="application/json" action="/horses">        
+                    <h4 class="oma_h4">Nimi:</h4>
+                    <input type="text" required placeholder="Koko nimi" name ="Nimi"/>
+                    <h4 class="oma_h4">Kutsumanimi:</h4>
+                    <input type="text"  placeholder="Kutsumanimi" name ="Kutsumanimi" />
+                    <h4 class="oma_h4">Syntymäaika:</h4>
+                    <input type="text" placeholder="Syntymäaika" name ="Syntymäaika" />
+                    <h4 class="oma_h4">Sukuposti:</h4>
+                    <button class="button" onClick="window.open('http://www.sukuposti.net/hevonen/hae');"><span class="icon">Hae Linkki</span></button>
+                    <input type="text" placeholder="Linkki" name ="Sukuposti" /><br><br>
+                    <input type="submit" value="Lisää"/>
+                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                </form>
+            </section>
+               
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>   
+</html>

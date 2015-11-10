@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>-->
+
+        <title>Person Add</title>
+        <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+ 
+        
+    </head>
+    <body>
+        <div class="entry">
+            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+        </div>
+         
+        <div class="omaentry">
+            <nav id="head">
+            </nav>
+            <section>
+                <h1 class="oma_h1">Muokkaa tuntijakoa</h1>
+        
+                <form method="post" enctype="application/json" action="/hours">
+                    <h4 class="oma_h4">Kello: <input type="text" placeholder="Kello" name ="Kello"/></h4>
+                    <h4 class="oma_h4">Maanantai: <input type="text" placeholder="Maanantai" name ="Maanantai"/></h4>
+                    <h4 class="oma_h4">Tiistai: <input type="text" placeholder="Tiistai" name ="Tiistai"/></h4>
+                    <h4 class="oma_h4">Keskiviikko: <input type="text" placeholder="Keskiviikko" name ="Keskiviikko"/></h4>
+                    <h4 class="oma_h4">Torstai: <input type="text" placeholder="Torstai" name ="Torstai"/></h4>
+                    <h4 class="oma_h4">Perjantai: <input type="text" placeholder="Perjantai" name ="Perjantai"/></h4>
+                    <h4 class="oma_h4">Lauantai: <input type="text" placeholder="Lauantai" name ="Lauantai"/></h4>
+                    <h4 class="oma_h4">Sunnuntai: <input type="text" placeholder="Sunnuntai" name ="Sunnuntai"/></h4>
+                    <input type="submit" value="Lisää"/>
+                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                </form>
+            </section>
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>   
+</html>

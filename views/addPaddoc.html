@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>-->
+
+        <title>Hevosten Tarhauskalenteri</title>
+        <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+ 
+        
+    </head>
+    <body>
+        <div class="entry">
+            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+        </div>
+         
+        <div class="omaentry">
+            <nav id="head">
+            </nav>
+            <section>
+                <h1 class="oma_h1">Muokkaa tarhausaikoja</h1>
+        
+                <form method="post" enctype="application/json" action="/paddocs">
+                    <h4 class="oma_h4">Hevonen: <input type="text" placeholder="Hevonen" name ="Hevonen"/></h4>
+                    <h4 class="oma_h4">Aamutarha: <input type="text" placeholder="Aamutarha" name ="Aamutarha"/></h4>
+                    <h4 class="oma_h4">Päivätarha: <input type="text" placeholder="Päivätarha" name ="Päivätarha"/></h4>
+                    <h4 class="oma_h4">Iltatarha: <input type="text" placeholder="Iltatarha" name ="Iltatarha"/></h4>
+                    <h4 class="oma_h4">Huomio: <input type="text" placeholder="Huomio" name ="Huomio"/></h4>
+                    <input type="submit" value="Lisää"/>
+                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                </form>
+            </section>
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>   
+</html>

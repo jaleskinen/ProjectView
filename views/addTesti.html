@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>-->
+
+        <title>Testisivu</title>
+        <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+ 
+        
+    </head>
+    <body>
+         <div class="entry">
+            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+        </div>
+         
+        <div class="omaentry">
+            <nav id="head">
+            </nav>
+            <section>
+                <h1 class="oma_h1">Lisää testi</h1>
+                <form method="post" enctype="application/json" action="/testit">        
+                    <h4 class="oma_h4">Testi_1:</h4>
+                    <input type="text" required placeholder="Testi_1" name ="Testi_1"/>
+                    <h4 class="oma_h4">Testaaja:</h4>
+                    <input type="text"  placeholder="Testaaja" name ="Testaaja" />
+                    <h4 class="oma_h4">Tulos:</h4>
+                    <input type="text" placeholder="Tulos" name ="Tulos" /><br><br>
+                    <input type="submit" value="Lisää"/>
+                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+
+
+                </form>     
+            </section>
+            
+            <div class="groupMenu">
+                 <input class="default_group" type="hidden" value="group2" />
+                 <select name="gName0" id="groupDropDown">
+                      <option value="group1">Group 1</option>
+                      <option value="group2">Group 2</option>
+                      <option value="group3">Group 3</option>
+                 </select>
+            </div>
+               
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>   
+</html>

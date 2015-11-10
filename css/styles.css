@@ -1,0 +1,185 @@
+/* Notes, functionality to be added, bugs, optimisation ideas, etc.:
+            - 
+            - 
+            - 
+            -
+  '/
+
+
+/*use element selector to change body elements styles*/
+body {
+    background: repeating-linear-gradient(
+      90deg,
+      #53423d,
+      #222 10px,
+      #502115 10px,
+      #333 20px
+    );
+} 
+
+/*use element selector to select all p elements for this style*/
+p{
+    color: aqua; /*Text color*/
+    font-size: 12px;
+}
+
+.oma_h4{
+    font-size: 22px;
+}
+
+
+.about{
+    color: red; /*Text color*/
+}
+/*use element selector to change h1 elements styles from default values*/
+.oma_h1{
+    color: #47acd7; /*Text color*/
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+.oma_h2{
+    color: #47acd7; /*Text color*/
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+.oma_h3{
+    color: #47acd7; /*Text color*/
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.oma_h4{
+    color: darkred; /*Text color*/
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 22px;
+}
+
+.oma_a{
+    color: #47acd7; /*Text color*/
+    font-size: 40px;
+}
+
+.oma_table{
+    border: 4px solid #47acd7;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+    text-align: center;
+}
+
+td, th {
+    border: 1px solid black;
+    color: red; /*Text color*/
+
+}
+
+.oma_th {
+    text-align: center;
+
+}
+.thead_horse, .thead_people, .thead_todo, .thead_calendar, .thead_oma  {
+    background-color: lightblue;
+    color: white;
+}
+
+.tbody_horse, .tbody_people, .tbody_todo, .tbody_calendar, .tbody_oma {
+    background-color: lightblue;
+    text-align: left;
+    color: white;
+}
+
+h2{
+    font-size: 32px; 
+    background: repeating-linear-gradient(
+      90deg,
+      #4c4c5f,
+      #222 2px,
+      #38302f 10px,
+      #333 20px
+    );
+}
+
+
+footer { 
+    text-align: left;
+    color: #47acd7; /*Text color ??*/
+    font-size: 14px;
+    font-style: oblique;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+/*use class selector to define style for elements. Note: always start with a dot (.) !!*/
+.entry{
+    text-align: center;
+    color: #47acd7; /*border color*/
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: 4px;
+    border-style: solid;
+    border-radius: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      #4c4c5f,
+      #222 2px,
+      #38302f 10px,
+      #333 20px
+    );
+}
+
+.omaentry{
+    text-align: center;
+    color: #47acd7; /*border and text color*/
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 4px;
+    border-style: solid;
+    border-radius: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      #4c4c5f,
+      #222 2px,
+      #38302f 10px,
+      #333 20px
+    );
+}
+
+.left{
+    width: 130px;
+    height: 30px;
+    margin-left: 2%;
+}
+
+/*::-webkit-input-placeholder {
+ font-size: 14px;
+ color: #d0cdfa;
+ text-transform: uppercase;
+ text-align: center;
+ font-weight: bold;
+}*/
+
+.center{
+    width: 350px;
+    height: 30px;
+}
+
+/*use id selector to define style*/
+#menu{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    color:crimson;
+}
+

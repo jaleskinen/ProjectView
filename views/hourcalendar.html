@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+        <!--
+        <meta charset="utf-8">/meta>
+        -->
+        <title>Työntekijän Tuntikalenteri</title>
+        <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+        
+        
+    </head>
+    <body>
+        
+        <div class="entry">
+            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+            <table>
+                <form action="index.html">
+                        <input type="submit" value="Etusivu">
+                </form>              
+                <form action="person.html">
+                    <input type="submit" value="Henkilöt">
+                </form>
+                <form action="horse.html">
+                    <input type="submit" value="Hevoset">
+                </form>
+                <form action="todo.html">
+                    <input type="submit" value="Ilmoitukset">
+                </form>
+                <form action="hourcalendar.html">
+                    <input type="submit" value="Henkilötunnit">
+                </form>
+                <form action="stablecalendar.html">
+                    <input type="submit" value="Tallikalenteri">
+                </form>
+                <form action="paddoc.html">
+                    <input type="submit" value="Tarhauskalenteri">
+                </form>
+                <form action="horsecalendar.html">
+                    <input type="submit" value="Hevostunnit">
+                </form>
+                <form action="health.html">
+                    <input type="submit" value="Terveys">
+                </form>
+                <br><br>     
+            </table>
+        </div>
+         
+        <div class="omaentry">
+            <nav id="head">
+            </nav>
+            <section>
+                <h1 class="oma_h1">Työntekijän Tuntikalenteri</h1>
+                <table class ="oma_table">          
+
+                    <thead class ="thead_oma">
+                    </thead>
+
+                    <tbody class ="tbody_oma">
+                    </tbody>
+   
+                </table>
+                <table class ="oma_table">          
+                    <br>
+                    <form action="addHourcalendar.html">
+                            <input type="submit" value="Lisää Tunteja">
+                    </form>
+                    <br><br>    
+                </table>
+                
+            </section>
+            <footer>
+                Copyright by Jarmo Leskinen
+            </footer>
+        </div>
+        
+        
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/controllers/scripts.js"></script>
+    </body>      
+</html>
