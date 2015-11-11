@@ -82,7 +82,7 @@ $(document).ready(function () {
                         //Create data and add it to row
                         $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(row2);
                     }
-                    $("<td align='center'><input type='button' class='btn btn-primary' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(row2);
+                    $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(row2);
                     
                 } else {
                     for (k = 1; k < (headers.length-1) ; k++) {
@@ -92,7 +92,7 @@ $(document).ready(function () {
                     
                 }
                 //Add "muokkaa" button
-                $("<td align='center'><input type='button' class='btn btn-primary' id=" + data[i]._id + " value='Muokkaa'/></td>").appendTo(row2);
+                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" + data[i]._id + " value='Muokkaa'/></td>").appendTo(row2);
 
                 $(row2).appendTo(".tbody_oma");
             }
@@ -176,7 +176,7 @@ function buildModifyUI(item_data, i) {
                         $("<input type='text' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(row_test);
                     }
 
-                    $("<br><br><input type='button' class='btn btn-primary' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary' value='Cancel' id = 'cancel'/>").appendTo(row_test);  
+                    $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(row_test);  
 
 //Test persons fetch from persons table END
         
@@ -194,7 +194,7 @@ function buildModifyUI(item_data, i) {
             if (location.pathname == "/horse.html" ) {    
                 $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input type='submit' value='Hae Linkki'></form>").appendTo(row_html);
             };
-            $("<br><br><input type='button' class='btn btn-primary' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary' value='Cancel' id = 'cancel'/>").appendTo(row_html);    
+            $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(row_html);    
         
                        
     $("section").html(html);
