@@ -99,7 +99,7 @@ $(document).ready(function () {
         }     
         
         //Open sukuposti.net from horses page
-        $("[value=Suku").click(function (click_data) {
+        $("#Suku").click(function (click_data) {
 
             console.log("Open sukuposti");
             console.log(click_data);

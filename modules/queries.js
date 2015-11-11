@@ -35,7 +35,12 @@ exports.saveNewPerson = function (req, res) {
             res.send("Error in database!!");
         } else {
             
-            res.send("<head><meta http-equiv='Refresh' content='0; url=./person.html'></head>");
+        /*   
+        res.send("<head><meta http-equiv='Refresh' content='0; url=./person.html'></head>");
+        */
+            
+        //Redirect to root context
+        res.redirect('/');
         }
     });
 };

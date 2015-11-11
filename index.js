@@ -40,25 +40,18 @@ app.use('/lib', express.static(path.join(__dirname, 'lib')));
 app.use('/controllers', express.static(path.join(__dirname, 'controllers')));
 
 app.use('/persons', person);
-
 app.use('/horses', horse);
-
 app.use('/todos', todo);
-
 app.use('/tasks', hourcalendar);
-
 app.use('/testit', testi);
-
 app.use('/hours', hour);
-
 app.use('/paddocs', paddoc);
-
 app.use('/healths', health);
-
 app.use('/horsehours', horsehour);
 
 //============ ROUTERS======================
-//Why these are needed??
+//Are these needed??
+/*
 
 app.get("/persons", function (req, res) {
     
@@ -122,6 +115,7 @@ app.get("/horsehours", function (req, res) {
 
 });
 
+*/
 
 
 
