@@ -8,30 +8,18 @@
 
 /*use element selector to change body elements styles*/
 body {
-    background: repeating-linear-gradient(
+/*    background: repeating-linear-gradient(
       90deg,
       #53423d,
       #222 10px,
       #502115 10px,
       #333 20px
-    );
+    );*/
+      background: linear-gradient(to right, rgba(0,0,20,0.5), rgba(50, 50, 50, 0.9));
 } 
 
-/*use element selector to select all p elements for this style*/
-p{
-    color: aqua; /*Text color*/
-    font-size: 12px;
-}
-
-.oma_h4{
-    font-size: 22px;
-}
-
-
-.about{
-    color: red; /*Text color*/
-}
 /*use element selector to change h1 elements styles from default values*/
+
 .oma_h1{
     color: #47acd7; /*Text color*/
     font-weight: bold;
@@ -51,10 +39,11 @@ p{
 .oma_h3{
     color: #47acd7; /*Text color*/
     margin: 8px auto;
+    padding: 8px;
 }
 
 .oma_h4{
-    color: darkred; /*Text color*/
+    color: #47acd7; /*Text color*/
     font-weight: bold;
     margin: 8px auto;
     font-size: 22px;
@@ -87,6 +76,7 @@ p{
 .oma_table td, .oma_table th {
     border-left: 1px solid #47acd7;
     border-top: 1px solid #47acd7;
+    padding: 2px;
 }
 .oma_table tr > *:first-child {
     border-left: 0px;
@@ -108,13 +98,10 @@ td, th {
 }
 .thead_oma  {
     background-color: lightblue;
-    color: white;
 }
 
 .tbody_oma {
     background-color: lightblue;
-    text-align: left;
-    color: white;
 }
 
 h2{
@@ -195,10 +182,7 @@ footer {
 }
 
 /*use id selector to define style*/
-#menu{
-    margin-top: 2%;
-    margin-bottom: 2%;
-    text-align: center;
-    color:crimson;
+#input{
+ color: maroon; /*Text color*/
 }
 

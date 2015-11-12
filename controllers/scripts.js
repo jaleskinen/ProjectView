@@ -263,7 +263,7 @@ function buildModifyUI(item_data, i) {
          } else if (location.pathname == "/stablecalendar.html" ) {
             var temp = {
                 id: item_data._id,
-                Kello: $("#Kello").val(),
+                Kellonaika: $("#Kellonaika").val(),
                 Maanantai: $("#Maanantai").val(),
                 Tiistai: $("#Tiistai").val(),
                 Keskiviikko: $("#Keskiviikko").val(),

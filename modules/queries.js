@@ -512,7 +512,7 @@ This method updates task information to hour colletion
 exports.updateHour = function (req, res) {
     
     var updateData = {
-        Kello: req.body.Kello,
+        Kellonaika: req.body.Kellonaika,
         Maanantai: req.body.Maanantai,
         Tiistai: req.body.Tiistai,
         Keskiviikko: req.body.Keskiviikko,

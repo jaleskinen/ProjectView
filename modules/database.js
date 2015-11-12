@@ -71,7 +71,7 @@ var Testi = mongoose.model('Testi', {
 exports.Testi = Testi;
 
 var Hour = mongoose.model('Hour', {
-    Kello: String,
+    Kellonaika: String,
     Maanantai: String,
     Tiistai: String,
     Keskiviikko: String,
