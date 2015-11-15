@@ -8,8 +8,6 @@
         <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
- 
-        
     </head>
     <body>
         <div class="entry">
@@ -20,24 +18,24 @@
             <nav id="head">
             </nav>
             <section>
-                <h1 class="oma_h1">Muokkaa tarhausaikoja</h1>
+                <h1 class="oma_h1">Muokkaa ruokintatietoja</h1>
         
-                <form method="post" enctype="application/json" action="/paddocs">
+                <form method="post" enctype="application/json" action="/feeds">
                     <h4 class="oma_h4">Hevonen:</h4>
-                        <input type="text" placeholder="Hevonen" name ="Hevonen"/>
+                    <input type="text" placeholder="Hevonen" name ="Hevonen"/>
                     <h4 class="oma_h4">Aamutarha:</h4>
-                        <input type="text" placeholder="Aamutarha" name ="Aamutarha"/>
+                    <input type="text" placeholder="Aamuruoka" name ="Aamuruoka"/>
                     <h4 class="oma_h4">Päivätarha:</h4>
-                        <input type="text" placeholder="Päivätarha" name ="Päivätarha"/>
+                    <input type="text" placeholder="Päiväruoka" name ="Päiväruoka"/>
                     <h4 class="oma_h4">Iltatarha:</h4>
-                        <input type="text" placeholder="Iltatarha" name ="Iltatarha"/>
+                    <input type="text" placeholder="Iltaruoka" name ="Iltaruoka"/>
                     <h4 class="oma_h4">Huomio:</h4>
-                        <input type="text" placeholder="Huomio" name ="Huomio"/><br><br>
+                    <input type="text" placeholder="Huomio" name ="Huomio"/><br><br>
                     <input type="submit" class='btn btn-primary' value="Lisää"/>
                     <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>
             </section>
-        <script src="/lib/jquery-2.1.4.min.js"></script>
+       <script src="/lib/jquery-2.1.4.min.js"></script>
         <script src="/controllers/scripts.js"></script>
     </body>   
 </html>

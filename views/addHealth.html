@@ -23,13 +23,18 @@
                 <h1 class="oma_h1">Muokkaa terveystietoja</h1>
         
                 <form method="post" enctype="application/json" action="/healths">
-                    <h4 class="oma_h4">Hevonen: <input type="text" placeholder="Hevonen" name ="Hevonen"/></h4>
-                    <h4 class="oma_h4">Rokotukset: <input type="text" placeholder="Rokotukset" name ="Rokotukset"/></h4>
-                    <h4 class="oma_h4">Madotukset: <input type="text" placeholder="Madotukset" name ="Madotukset"/></h4>
-                    <h4 class="oma_h4">Hieronnat: <input type="text" placeholder="Hieronnat" name ="Hieronnat"/></h4>
-                    <h4 class="oma_h4">Yleistä: <input type="text" placeholder="Yleistä" name ="Yleistä"/></h4>
-                    <input type="submit" value="Lisää"/>
-                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                    <h4 class="oma_h4">Hevonen: </h4>
+                        <input type="text" placeholder="Hevonen" name ="Hevonen"/>
+                    <h4 class="oma_h4">Rokotukset: </h4>
+                        <input type="text" placeholder="Rokotukset" name ="Rokotukset"/>
+                    <h4 class="oma_h4">Madotukset: </h4>
+                        <input type="text" placeholder="Madotukset" name ="Madotukset"/>
+                    <h4 class="oma_h4">Hieronnat: </h4>
+                        <input type="text" placeholder="Hieronnat" name ="Hieronnat"/>
+                    <h4 class="oma_h4">Yleistä: </h4>
+                        <input type="text" placeholder="Yleistä" name ="Yleistä"/><br><br>
+                    <input type="submit" class='btn btn-primary' value="Lisää"/>
+                    <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>
             </section>
         <script src="/lib/jquery-2.1.4.min.js"></script>

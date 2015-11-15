@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/oma', connectionStatus);
+mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 
 //mongoose.connect('mongodb://localhost:27017/oma', connectionStatus);
 //mongoose.connect('mongodb://localhost:27017/testi', connectionStatus);
@@ -43,16 +43,15 @@ var Horse = mongoose.model('Horse', {
 exports.Horse = Horse;
 
 var Todo = mongoose.model('Todo', {
-    Ilmoitus: String,
-    Kuvaus: String,
-    Toimenpide: String
+    Ilmoittaja: String,
+    Ilmoitus: String
 },'todo');
 
 //Using exports object you expose the data to other modules
 exports.Todo = Todo;
 
 var hourcalendi = mongoose.model('hourcalendar', {
-    Aika: String,
+    Päivä: String,
     Henkilö: String,
     Tehtävä: String,
     Tunnit: Number
@@ -94,6 +93,17 @@ var Paddoc = mongoose.model('Paddoc', {
 
 //Using exports object you expose the data to other modules
 exports.Paddoc = Paddoc;
+
+var Feed = mongoose.model('Feed', {
+    Hevonen: String,
+    Aamuruoka: String,
+    Päiväruoka: String,
+    Iltaruoka: String,
+    Huomio: String,
+},'feed');
+
+//Using exports object you expose the data to other modules
+exports.Feed = Feed;
 
 var Health = mongoose.model('Health', {
     Hevonen: String,

@@ -35,12 +35,12 @@ exports.saveNewPerson = function (req, res) {
             res.send("Error in database!!");
         } else {
             
-        /*   
+           
         res.send("<head><meta http-equiv='Refresh' content='0; url=./person.html'></head>");
-        */
+        
             
         //Redirect to root context
-        res.redirect('/');
+ /*       res.redirect('/');*/
         }
     });
 };
@@ -337,7 +337,7 @@ This method updates task information to calendar colletion
 exports.updateTask = function (req, res) {
     
     var updateData = {
-        Aika: req.body.Aika,
+        Päivä: req.body.Päivä,
         Henkilö: req.body.Henkilö,
         Tehtävä: req.body.Tehtävä,
         Tunnit: req.body.Tunnit
@@ -789,6 +789,96 @@ exports.updateHorsehour = function (req, res) {
     };
     
     db.Horsehour.update({_id: req.body.id}, updateData, function (err) {
+        if (err) {
+            
+            res.send(err.message);
+        } else {
+            
+            res.send("Updated");
+            //res.send({data:"ok"});
+        }
+        
+    });
+};
+
+
+/*
+This function gets all documents from Feed colletion
+*/
+exports.getAllFeeds = function (req, res) {
+    
+    db.Feed.find(function (err, data) {
+        
+        if (err) {
+            
+            console.log(err.message);
+            res.send("Error in database!!");
+        } else {
+            
+            res.send(data);
+        }
+    });
+};
+
+
+/*
+This function saves new Feed information to Feed colletion
+*/
+exports.saveNewFeed = function (req, res) {
+    
+    var feedTemp = new db.Feed(req.body);
+    
+    //Save it to database
+    feedTemp.save(function (err, ok) {
+        
+        if (err) {
+            
+            console.log(err.message);
+            res.send("Error in database!!");
+        } else {
+            
+            res.send("<head><meta http-equiv='Refresh' content='0; url=./feed.html'></head>");
+        }
+    });
+};
+
+/*
+This function deletes one field from Feed colletion
+*/
+exports.deleteFeed = function (req, res) {
+    
+    //Here req.params.id return string "id=35635463456345f"
+    //Split function splits the string from "0" and creates an array
+    //where [0] contains "id" and [1] contains "35635463456345f"
+    var id = req.params.id.split("=")[1];
+    
+    db.Feed.remove({_id: id}, function (err) {
+        if (err) {
+            
+            res.send(err.message);
+        } else {
+            
+            res.send("Delete done");
+        }
+       
+    });
+    
+};
+
+/*
+This method updates Health information to Feed colletion
+*/
+exports.updateFeed = function (req, res) {
+    
+    var updateData = {
+        Hevonen: req.body.Hevonen,
+        Aamuruoka: req.body.Aamuruoka,
+        Päiväruoka: req.body.Päiväruoka,
+        Iltaruoka: req.body.Iltaruoka,
+        Huomio: req.body.Huomio
+    };
+    
+    db.Feed.update({_id: req.body.id}, updateData, function (err) {
         if (err) {
             
             res.send(err.message);

@@ -10,6 +10,7 @@ var hourcalendar = require('./modules/hourcalendar');
 var testi = require('./modules/testi');
 var hour = require('./modules/hour')
 var paddoc = require('./modules/paddoc')
+var feed = require('./modules/feed')
 var health = require('./modules/health')
 var horsehour = require('./modules/horsehour')
 var app = express();
@@ -25,8 +26,8 @@ app.use(bodyParser.urlencoded());
 app.use(function (req, res, next) {
         
     console.log(req.method);
-    console.log(req.path);
-    console.log(__dirname);
+    console.log("req.path: " +  req.path);
+    console.log("dirname: " + __dirname);
     console.log(req.body);
     //console.log(database.Person);
     database.myFunction();
@@ -46,6 +47,7 @@ app.use('/tasks', hourcalendar);
 app.use('/testit', testi);
 app.use('/hours', hour);
 app.use('/paddocs', paddoc);
+app.use('/feeds', feed);
 app.use('/healths', health);
 app.use('/horsehours', horsehour);
 

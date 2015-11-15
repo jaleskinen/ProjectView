@@ -19,6 +19,8 @@ if (location.pathname == "/horse.html" ) {
     var urlCurrent = "http://localhost:3000/hours";
 } else if (location.pathname == "/paddoc.html" ) {
     var urlCurrent = "http://localhost:3000/paddocs";
+} else if (location.pathname == "/feed.html" ) {
+    var urlCurrent = "http://localhost:3000/feeds";
 } else if (location.pathname == "/health.html" ) {
     var urlCurrent = "http://localhost:3000/healths";
 } else if (location.pathname == "/horsecalendar.html" ) {
@@ -156,30 +158,6 @@ function buildModifyUI(item_data, i) {
      
         headers = Object.keys(data[0]);
         
-//Test persons fetch from persons table START, Name ID still missing???
-                row_test1 = $("<select></select>");
-                for (k = 0; k < (data.length) ; k++) {
-
-                $("<option id='Nimi' value='" + data[k][headers[1]] + "' >" + data[k][headers[1]] + "</option>").appendTo(row_test1);
-
-                }
-                $("<option selected='selected'>" + data[i][headers[1]] + "</option>").appendTo(row_test1);
-                var html_test = 
-                    row_test = $("<div></div>");
-                    $("<h1 class='oma_h1'>Muokkaa/poista tietoja</h1>").appendTo(row_test);
-                    $("<h4 class ='oma_h4'>" + [headers[1]] + "</h4>").appendTo(row_test);
-                    $(row_test1).appendTo(row_test);
-
-                    for (k = 2; k < (headers.length-1) ; k++) {
-                        //Create data and add it to row          
-                        $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(row_test);
-                        $("<input type='text' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(row_test);
-                    }
-
-                    $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(row_test);  
-
-//Test persons fetch from persons table END
-        
         
         //Create html view also dynamically, (check that rows length is > 0??)
         var html = 
@@ -241,14 +219,13 @@ function buildModifyUI(item_data, i) {
          } else if (location.pathname == "/todo.html" ) {
             var temp = {
                 id: item_data._id,
+                Ilmoittaja: $("#Ilmoittaja").val(),
                 Ilmoitus: $("#Ilmoitus").val(),
-                Kuvaus: $("#Kuvaus").val(),
-                Toimenpide: $("#Toimenpide").val(),
             };
          } else if (location.pathname == "/hourcalendar.html" ) {
             var temp = {
                 id: item_data._id,
-                Aika: $("#Aika").val(),
+                Päivä: $("#Päivä").val(),
                 Henkilö: $("#Henkilö").val(),
                 Tehtävä: $("#Tehtävä").val(),
                 Tunnit: $("#Tunnit").val(),
@@ -279,6 +256,15 @@ function buildModifyUI(item_data, i) {
                 Aamutarha: $("#Aamutarha").val(),
                 Päivätarha: $("#Päivätarha").val(),
                 Iltatarha: $("#Iltatarha").val(),
+                Huomio: $("#Huomio").val(),
+            };
+         } else if (location.pathname == "/feed.html" ) {
+            var temp = {
+                id: item_data._id,
+                Hevonen: $("#Hevonen").val(),
+                Aamuruoka: $("#Aamuruoka").val(),
+                Päiväruoka: $("#Päiväruoka").val(),
+                Iltaruoka: $("#Iltaruoka").val(),
                 Huomio: $("#Huomio").val(),
             };
          } else if (location.pathname == "/health.html" ) {

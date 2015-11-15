@@ -23,16 +23,24 @@
                 <h1 class="oma_h1">Muokkaa tuntijakoa</h1>
         
                 <form method="post" enctype="application/json" action="/hours">
-                    <h4 class="oma_h4">Kellonaika: <input type="text" placeholder="Kellonaika" name ="Kellonaika"/></h4>
-                    <h4 class="oma_h4">Maanantai: <input type="text" placeholder="Maanantai" name ="Maanantai"/></h4>
-                    <h4 class="oma_h4">Tiistai: <input type="text" placeholder="Tiistai" name ="Tiistai"/></h4>
-                    <h4 class="oma_h4">Keskiviikko: <input type="text" placeholder="Keskiviikko" name ="Keskiviikko"/></h4>
-                    <h4 class="oma_h4">Torstai: <input type="text" placeholder="Torstai" name ="Torstai"/></h4>
-                    <h4 class="oma_h4">Perjantai: <input type="text" placeholder="Perjantai" name ="Perjantai"/></h4>
-                    <h4 class="oma_h4">Lauantai: <input type="text" placeholder="Lauantai" name ="Lauantai"/></h4>
-                    <h4 class="oma_h4">Sunnuntai: <input type="text" placeholder="Sunnuntai" name ="Sunnuntai"/></h4>
-                    <input type="submit" value="Lisää"/>
-                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                    <h4 class="oma_h4">Kellonaika: </h4>
+                        <input type="text" placeholder="Kellonaika" name ="Kellonaika"/>
+                    <h4 class="oma_h4">Maanantai: </h4>
+                        <input type="text" placeholder="Maanantai" name ="Maanantai"/>
+                    <h4 class="oma_h4">Tiistai: </h4>
+                        <input type="text" placeholder="Tiistai" name ="Tiistai"/>
+                    <h4 class="oma_h4">Keskiviikko: </h4>
+                        <input type="text" placeholder="Keskiviikko" name ="Keskiviikko"/>
+                    <h4 class="oma_h4">Torstai: </h4>
+                        <input type="text" placeholder="Torstai" name ="Torstai"/>
+                    <h4 class="oma_h4">Perjantai: </h4>
+                        <input type="text" placeholder="Perjantai" name ="Perjantai"/>
+                    <h4 class="oma_h4">Lauantai: </h4>
+                        <input type="text" placeholder="Lauantai" name ="Lauantai"/>
+                    <h4 class="oma_h4">Sunnuntai: </h4>
+                        <input type="text" placeholder="Sunnuntai" name ="Sunnuntai"/><br><br>
+                    <input type="submit" class='btn btn-primary' value="Lisää"/>
+                    <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>
             </section>
         <script src="/lib/jquery-2.1.4.min.js"></script>

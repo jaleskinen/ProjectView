@@ -22,19 +22,12 @@
             <section>
                 <h1 class="oma_h1">Lisää ilmoitus</h1>
                 <form method="post" enctype="application/json" action="/todos">        
+                    <h4 class="oma_h4">Ilmoittaja:</h4>
+                    <input type="text" placeholder="Nimi" name ="Ilmoittaja" />   
                     <h4 class="oma_h4">Ilmoitus:</h4>
-                    <select name="Ilmoitus">
-                        <option value="Vika">Vika</option>
-                        <option value="Puute">Puute</option>
-                        <option value="Toive">Toive</option>
-                        <option value="Kiitos">Kiitos</option>
-                    </select>
-                    <h4 class="oma_h4">Kuvaus:</h4>
-                    <input type="text" placeholder="Kuvaus" name ="Kuvaus" />
-                    <h4 class="oma_h4">Toimenpide:</h4>
-                    <input type="text" placeholder="Toimenpide" name ="Toimenpide" /><br><br>
-                    <input type="submit" value="Lisää"/>
-                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                    <input type="text" placeholder="Ilmoitus" name ="Ilmoitus" /><br><br>
+                    <input type="submit" class='btn btn-primary' value="Lisää"/>
+                    <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>
             </section>
                

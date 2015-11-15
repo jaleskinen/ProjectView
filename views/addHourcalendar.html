@@ -23,8 +23,8 @@
                 <h1 class="oma_h1">Lisää uusi tehtävä</h1>
         
                 <form method="post" enctype="application/json" action="/tasks">  
-                    <h4 class="oma_h4">Aika:</h4>
-                    <input type="text" required placeholder="Aika" name ="Aika"/>
+                    <h4 class="oma_h4">Päivä:</h4>
+                    <input type="date" required placeholder="Päivä" name ="Päivä"/>
                     <h4 class="oma_h4">Henkilö:</h4>
                     <input type="text"  placeholder="Henkilö" name ="Henkilö" />
                     <h4 class="oma_h4">Tehtävä:</h4>
@@ -37,8 +37,8 @@
 <!--                    <input type="text"  placeholder="Tehtävä" name ="Tehtävä" />-->
                     <h4 class="oma_h4">Tunnit:</h4>
                     <input type="number"  placeholder="Tunnit" name ="Tunnit" /><br><br>
-                    <input type="submit" value="Lisää"/>
-                    <input Type="submit" value="Peruuta" onClick="history.go(-1);return true;"><br><br>
+                    <input type="submit" class='btn btn-primary' value="Lisää"/>
+                    <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>
             </section>
         <script src="/lib/jquery-2.1.4.min.js"></script>
