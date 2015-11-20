@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
         </div>
          
         <div class="omaentry">
@@ -24,9 +24,9 @@
         
                 <form method="post" enctype="application/json" action="/horsehours">  
                     <h4 class="oma_h4">Aika:</h4>
-                    <input type="text" required placeholder="Aika" name ="Aika"/>
+                    <input type="text" required  class="form-control text-center center-block" style = "width:300px" placeholder="Aika" name ="Aika"/>
                     <h4 class="oma_h4">Hevonen:</h4>
-                    <input type="text"  placeholder="Hevonen" name ="Hevonen" />
+                    <input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen" />
                     <h4 class="oma_h4">Laji:</h4>
                     <select name="Laji">
                         <option value="Koulu">Koulu</option>
@@ -36,9 +36,9 @@
                         <option value="Talutus">Talutus</option>
                         <option value="Yleistunti">Yleistunti</option>
                     </select>
-<!--                    <input type="text"  placeholder="Tehtävä" name ="Tehtävä" />-->
+<!--                    <input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Tehtävä" name ="Tehtävä" />-->
                     <h4 class="oma_h4">Tunnit:</h4>
-                    <input type="number"  placeholder="Tunnit" name ="Tunnit" /><br><br>
+                    <input type="number"   class="form-control text-center center-block" style = "width:300px" placeholder="Tunnit" name ="Tunnit" /><br><br>
                     <input type="submit" class='btn btn-primary' value="Lisää"/>
                     <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
                 </form>

@@ -13,6 +13,7 @@ var paddoc = require('./modules/paddoc')
 var feed = require('./modules/feed')
 var health = require('./modules/health')
 var horsehour = require('./modules/horsehour')
+var user = require('./modules/user');
 var app = express();
 
 
@@ -22,12 +23,11 @@ var app = express();
 //bodyParser urlencoded() middleware parses the json object from HTTP POST request
 app.use(bodyParser.urlencoded());
 
-
 app.use(function (req, res, next) {
         
     //console.log(req.method);
-    //console.log("req.path: " +  req.path);
-    //console.log("dirname: " + __dirname);
+    console.log("req.path: " +  req.path);
+    console.log("dirname: " + __dirname);
     //console.log(req.body);
     //console.log(database.Person);
     database.myFunction();
@@ -50,6 +50,7 @@ app.use('/paddocs', paddoc);
 app.use('/feeds', feed);
 app.use('/healths', health);
 app.use('/horsehours', horsehour);
+app.use('/users', user);
 
 //============ ROUTERS======================
 //Are these needed??

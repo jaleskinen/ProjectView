@@ -1,10 +1,18 @@
+
 var mongoose = require('mongoose');
+//mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 
-mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
+var db = mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
+var db2 = mongoose.connect('mongodb://localhost:27017/pehtoori_2', connectionStatus);
 
-//mongoose.connect('mongodb://localhost:27017/oma', connectionStatus);
-//mongoose.connect('mongodb://localhost:27017/testi', connectionStatus);
-
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log("We are conneted again:");
+});
+console.log(db.host); // localhost
+console.log(db.port); // 27017
+console.log(db.name); // myDatabase
 
 /*
     Connetion callback for fail and ok cases
@@ -13,6 +21,7 @@ function connectionStatus(err, ok) {
     
     if (err) {
         
+        console.log("We are NOT conneted:");
         console.log(err.message);
     } else {
         
@@ -31,6 +40,14 @@ var Person = mongoose.model('Person', {
 
 //Using exports object you expose the data to other modules
 exports.Person = Person;
+
+var User = mongoose.model('User',{
+    username:{type:String,unique:true},
+    password:String,
+    users:[{type:mongoose.Schema.Types.ObjectId,ref:'Person'}]
+});
+//Using exports object you expose the data to other modules
+exports.Users = User;
 
 var Horse = mongoose.model('Horse', {
     Nimi: String,
@@ -126,9 +143,25 @@ var Horsehour = mongoose.model('Horsehour', {
 //Using exports object you expose the data to other modules
 exports.Horsehour = Horsehour;
 
-
 exports.myFunction = function() {
+
     
-    console.log("This note is from exports.myFunction");
+//  mongoose.connect('mongodb://localhost:27017/pehtoori', function() {
+//  console.log('Connected to pehtoori')
+//  mongoose.disconnect(connectToTest2)
+//  dbURI = 'mongodb://localhost:27017/pehtoori';
+//})
+//
+//function connectToTest2() {
+//  mongoose.connect('mongodb://localhost:27017/pehtoori_2', function() {
+//    console.log('Connected to pehtoori 2');
+//    dbURI = 'mongodb://localhost:27017/pehtoori_2';
+//  })
+//}
+
 };
+
+
+ 
+
 

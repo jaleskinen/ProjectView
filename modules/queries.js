@@ -890,3 +890,61 @@ exports.updateFeed = function (req, res) {
         
     });
 };
+
+exports.registerUser = function(req,res){
+    
+    var user = new db.Users(req.body);
+    user.save(function(err){
+        
+        if(err){
+            
+            res.send({status:err.message});
+        }
+        else{
+            res.send({status:"Ok"});
+        }
+    });
+}
+
+exports.loginUser = function(req,res){
+    
+    var searchObject = {
+        username:req.body.username,
+        password:req.body.password
+    }
+    
+    db.Users.find(searchObject,function(err,data){
+        
+        if(err){
+            
+            res.send({status:err.message});
+            
+        }else{
+            //=< 0 means wrong username or password
+            if(data.length > 0){
+                res.send({status:"Ok"});
+            }
+            else{
+                res.send({status:"Wrong username or password"});
+            }
+            
+        }
+    });
+}
+
+exports.getUsersByUsername = function(req,res){
+    
+    var usern = req.params.username.split("=")[1];
+    db.Users.find({username:usern}).
+        populate('users').exec(function(err,data){
+            
+            console.log(err);
+            console.log(data[0].users);
+            res.send(data[0].users);
+        
+        });
+}
+
+
+
+

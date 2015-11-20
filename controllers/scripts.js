@@ -36,8 +36,6 @@ console.log(urlCurrent);
 //Wait document ready event
 $(document).ready(function () {
     "use strict";
-    console.log("scripts.js document ready");
- 
     /* HTML5 solution to search
     $("#search").click(function () {
         console.log("Search triggered");
@@ -82,12 +80,12 @@ function buildModifyUI(item_data, data) {
         
             //Create data and add it to row          
             $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(html);
-            $("<input type='text' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
+            $("<input type='text' class='form-control text-center center-block' style = 'width:300px' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
         }
-       /* if (location.pathname == "/horse.html" ) {    
-            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input type='submit' value='Hae Linkki'></form>").appendTo(row_html);
-        };*/
-        $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
+        if (location.pathname == "/horse.html" ) {    
+            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input class='btn btn-primary btn-sm' style = 'width:100px' type='submit' value='Hae Linkki'></form>").appendTo(html);
+        };
+        $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/> <input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/> <input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
     
     
     $("section").html(html); //HTML5 was "body"
@@ -242,6 +240,7 @@ function buildTable(data) {
     "use strict";
             
     console.log("buildTable: " + data);
+    console.log("data.length: " + data.length);
     //Get all keys (attribute names) from json object
     //console.log(Object.keys(data[0]));
     $("tbody_oma").children().remove(); //HTML5 was tbody
@@ -250,14 +249,17 @@ function buildTable(data) {
     if (data.length > 0) {
         //Create table headers dynamically
         var headers = Object.keys(data[0]);
+        console.log("headers.length: " + headers.length);
         //Create row for headers
-        var row = $("<tr></tr>");
+       html = $("<tr></tr>");
         for (i = 1; i < headers.length - 1; i++) {
             //Create header and add it to orw
-            $("<th>" + headers[i] + "</th>").appendTo(row);
+            $("<th class='th_oma'>" + headers[i] + "</th>").appendTo(html);
         }
+        //Add blank block to last (_v not shown)
+        $("<th class='th_oma'></th>").appendTo(html);
         //Add row to thead element
-        $(row).appendTo("thead_oma");
+        $(html).appendTo(".thead_oma");
     }
     
     //Create table content dynamically

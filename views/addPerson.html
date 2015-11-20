@@ -13,7 +13,7 @@
     </head>
     <body>
        <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./index.html">Pehtoori</a></h1>
+            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
         </div>
          
         <div class="omaentry">
@@ -24,17 +24,17 @@
         
                 <form method="post" enctype="application/json" action="/persons">  
                     <h4 class="oma_h4">Nimi:</h4>
-                    <input type="text" required placeholder="Nimi" name ="Nimi"/>
+                    <input type="text" required  class="form-control text-center center-block" style = "width:300px" placeholder="Nimi" name ="Nimi"/>
                     <h4 class="oma_h4">Osoite:</h4>
-                    <input type="text"  placeholder="Osoite" name ="Osoite" />
+                    <input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Osoite" name ="Osoite" />
                     <h4 class="oma_h4">Kategoria:</h4>
-                    <input type="text" placeholder="Kategoria" name ="Kategoria" min="0" />
+                    <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Kategoria" name ="Kategoria" min="0" />
                     <h4 class="oma_h4">Puhelin:</h4>
-                    <input type="text" placeholder="12345678" name ="Puhelin" />
+                    <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="12345678" name ="Puhelin" />
                     <h4 class="oma_h4">Sähköposti:</h4>
-                    <input type="text" placeholder="email@com" name ="Sähköposti" />
+                    <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="email@com" name ="Sähköposti" />
                     <h4 class="oma_h4">Internet:</h4>
-                    <input type="text" placeholder="www sivulinkki" name ="Internet" /><br><br>
+                    <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="www sivulinkki" name ="Internet" /><br><br>
                     <input type="submit" class='btn btn-primary' value="Lisää"/>
                     <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"/><br><br>
                 </form>

@@ -49,9 +49,19 @@ body {
     font-size: 22px;
 }
 
+.h3_bold{
+    font-weight: bold;
+    font-size: 32px;
+} 
+
 .oma_a{
     color: #47acd7; /*Text color*/
     font-size: 40px;
+}
+
+.oma_padding{
+    font-size: 40px;
+    padding-left: 45%;
 }
 
 /*
@@ -92,12 +102,13 @@ td, th {
 
 }
 
-.oma_th {
+.th_oma {
     text-align: center;
 
 }
 .thead_oma  {
     background-color: lightblue;
+    text-align: center;
 }
 
 .tbody_oma {
