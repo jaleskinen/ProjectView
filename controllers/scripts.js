@@ -3,6 +3,8 @@
 /*global $ */
 
 //These variables are shown to every function
+var i, html, k;
+
 
 console.log(location.pathname);
 if (location.pathname == "/horse.html" ) {
@@ -33,151 +35,63 @@ console.log(urlCurrent);
 
 //Wait document ready event
 $(document).ready(function () {
-    
     "use strict";
-    console.log("jquery onload triggered");
-         
-    var setting =  {
-        
-        method: "GET",  //default method is GET
-        url : urlCurrent,
-        dataType: "json"
-        
-    };
-    
-    $.ajax(setting).done(function (data) {
-        console.log(data);
-        var i = 0, k = 0, headers = 0, row = 0, row2 = 0;
-  
-        //get all keys (attribute names)from json object
-        console.log(Object.keys(data[0]));
-        
-        //Create headers also dynamically, check that rows length is > 0
-        if (data.length > 0) {
-            headers = Object.keys(data[0]);
-            //Create row for headers
-            row = $("<tr></tr>");
-            //(headers.length-1) because of version numbering (_v) with mongodb
-            for (i = 1; i < (headers.length -1) ; i++) {
-                //Create header and add it to row
-                $("<th style='width: 20px' class = 'oma_th'>" + headers[i] + "</th>").appendTo(row);
-            }
-            $("<th style='width: 20px' class = 'oma_th'>" + " " + "</th>").appendTo(row);
+    console.log("scripts.js document ready");
+ 
+    /* HTML5 solution to search
+    $("#search").click(function () {
+        console.log("Search triggered");
+        var text = $("#search_text").val();
+        console.log("search_text: " + text);
+        $.ajax({
             
-            //Add row to thead element
-            $(row).appendTo(".thead_oma");
-        }
-
-        for (i = 0; i < data.length; i++) {
-
-            //All tbody tables, use selectors to use only one if several tbodys in use.
-            
-            //Create data rows also dynamically, check that rows length is > 0
-            if (data.length > 0) {
-
-                //Create row for data
-                row2 = $("<tr></tr>");
-                
-                //(headers.length-1) because of version numbering (_v) with mongodb
-                if (urlCurrent == "http://localhost:3000/horses"  ) {
-                    for (k = 1; k < (headers.length-2) ; k++) {
-                        //Create data and add it to row
-                        $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(row2);
-                    }
-                    $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(row2);
-                    
-                } else {
-                    for (k = 1; k < (headers.length-1) ; k++) {
-                    //Create data and add it to row
-                    $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(row2);
-                    }
-                    
-                }
-                //Add "muokkaa" button
-                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" + data[i]._id + " value='Muokkaa'/></td>").appendTo(row2);
-
-                $(row2).appendTo(".tbody_oma");
-            }
-        }     
-        
-        //Open sukuposti.net from horses page
-        $("[value=Suku]").click(function (click_data) {
-
-            console.log("Open sukuposti");
-            console.log(click_data);
-            //Check if id from button matches on of person id
-                if (click_data.currentTarget.id == "?") {
-                    
-                    console.log("Sukuposti hae ikkuna");
-                    window.open("http://www.sukuposti.net/hevonen/hae");
-                    
-                } else {
-                    
-                    window.open(click_data.currentTarget.id);
-                }                 
-        });
-        
-        //Get all elements from DOM where element has attribute 'type' with value 'button'
-        //Then add event handler for click event for each of them.
-        $("[type=button]").click(function (click_data) {
-
-            console.log("click_data: " + click_data);
-            for (i = 0; i < data.length; i++) {
-                
-                //Check if id from button matches on of person id
-                if (click_data.currentTarget.id == data[i]._id) {
-                    
-                    buildModifyUI(data[i], i);
-                    console.log("break");
-                    break;
-                }
-            }
-        });
+            method: 'GET',
+            url: 'http://localhost:3000/persons/name=' + text + '/username=' + localStorage.username
+        }).done(buildTable);
     });
-});
-
-function buildModifyUI(item_data, i) {
+    */
     
     var setting =  {
         
         method: "GET",  //default method is GET
         url: urlCurrent,
+        // HTML% solution url: "http://localhost:3000/friends/username=" + localStorage.username,
         dataType: "json"
         
     };
+    
+    $.ajax(setting).done(buildTable);
+    
+});
+ 
+
+/**
+  *Creates a modify view for our application
+  */
+// HTML5 solution function buildModifyUI(person_data, data) {
+function buildModifyUI(item_data, data) {
+    "use strict";
+    console.log("data.length: " + data.length);
+    var headers = Object.keys(data[0]);
+    var row_html;
+    console.log("headers.length: " + headers.length);
+
+    var html = $("<div></div>");
+    $("<h1 class='oma_h1'>Muokkaa/poista tietoja</h1>").appendTo(html);
+    for (var k = 1; k < (headers.length-1) ; k++) {
         
-    $.ajax(setting).done(function (data) {
-        console.log(data);
-        console.log("headers.length: ");
-        console.log(i);
-        console.log("data.length: ");
-        console.log(data.length);
-        
-        //get all keys (attribute names)from json object
-        console.log(Object.keys(data[0]));
-     
-        headers = Object.keys(data[0]);
-        
-        
-        //Create html view also dynamically, (check that rows length is > 0??)
-        var html = 
-            row_html = $("<div></div>");
-            $("<h1 class='oma_h1'>Muokkaa/poista tietoja</h1>").appendTo(row_html);
-             
-             for (k = 1; k < (headers.length-1) ; k++) {
-                        //Create data and add it to row          
-                        $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(row_html);
-                        $("<input type='text' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(row_html);
-                    }
-            if (location.pathname == "/horse.html" ) {    
-                $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input type='submit' value='Hae Linkki'></form>").appendTo(row_html);
-            };
-            $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(row_html);    
-        
-                       
-    $("section").html(html);
-        
-    //#delete hakee id elementtiä 'delete'. Jos .delete hakisi class elementtiä 'delete'
+            //Create data and add it to row          
+            $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(html);
+            $("<input type='text' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
+        }
+       /* if (location.pathname == "/horse.html" ) {    
+            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input type='submit' value='Hae Linkki'></form>").appendTo(row_html);
+        };*/
+        $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/><input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/><input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
+    
+    
+    $("section").html(html); //HTML5 was "body"
+    
     $("#delete").click(function () {
         
         if (confirm("Olethan varma tiedon poistamisesta ?") == true) {
@@ -191,12 +105,20 @@ function buildModifyUI(item_data, i) {
             } else {
             location.reload(true);
         };
+        
+//  HTML5 solution      
+//        $.ajax({
+//            method: 'DELETE',
+//            url: 'http://localhost:3000/persons/id=' + person_data._id + '/username=' + localStorage.username
+//        }).done(function (data) {
+//            location.reload(true);
+//        });
+//        
     });
     
-    //#update hakee id elementtiä 'update'.
     $("#update").click(function () {
-        console.log(location.pathname);
-
+        console.log("Update pressed");
+        
         if (location.pathname == "/horse.html" ) {
             var temp = {
                 id: item_data._id,
@@ -287,8 +209,8 @@ function buildModifyUI(item_data, i) {
          } else {
              console.log("HTML FILE MISSING!"); 
          }
-             
-        $.ajax({
+        
+         $.ajax({
             
             method: 'PUT',
             url: urlCurrent,
@@ -296,11 +218,98 @@ function buildModifyUI(item_data, i) {
             data: temp
             
         }).done(function (data) {location.reload(true)});  //reload page after update done
-    });
         
+ /*HTML5 solution
+        $.ajax({
+            method: "PUT",
+            url: 'http://localhost:3000/persons',
+            dataType: 'json',
+            data: temp
+        }).done(function (data) {
+            console.log("update response received");
+            location.reload(true);
+        });*/
+        
+    });
+    
     //If cancel, just reload original page    
     $("#cancel").click(function () {
         location.reload(true);
     });
-    });    
 }
+
+function buildTable(data) {
+    "use strict";
+            
+    console.log("buildTable: " + data);
+    //Get all keys (attribute names) from json object
+    //console.log(Object.keys(data[0]));
+    $("tbody_oma").children().remove(); //HTML5 was tbody
+    $("thead_oma").children().remove(); //HTML5 was thead
+    //Check that there are elements in array
+    if (data.length > 0) {
+        //Create table headers dynamically
+        var headers = Object.keys(data[0]);
+        //Create row for headers
+        var row = $("<tr></tr>");
+        for (i = 1; i < headers.length - 1; i++) {
+            //Create header and add it to orw
+            $("<th>" + headers[i] + "</th>").appendTo(row);
+        }
+        //Add row to thead element
+        $(row).appendTo("thead_oma");
+    }
+    
+    //Create table content dynamically
+    for (i = 0; i < data.length; i++) {
+
+        //All tbody tables, use selectors to use only one if several tbodys in use.
+
+        //Create data rows also dynamically, check that rows length is > 0
+        if (data.length > 0) {
+
+            //Create row for data
+            html = $("<tr></tr>");
+
+            //(headers.length-1) because of version numbering (_v) with mongodb
+            if (urlCurrent == "http://localhost:3000/horses"  ) {
+                for (k = 1; k < (headers.length-2) ; k++) {
+                    //Create data and add it to row
+                    $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
+                }
+                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(html);
+
+            } else {
+                for (k = 1; k < (headers.length-1) ; k++) {
+                //Create data and add it to row
+                $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
+                }
+
+            }
+            //Add "muokkaa" button
+            $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" + data[i]._id + " value='Muokkaa'/></td>").appendTo(html);
+
+            $(html).appendTo(".tbody_oma");
+        }
+
+    }
+
+    //Get all elements from DOM where element has
+    //attribute 'type' with value 'button'. Then add
+    //event handler for click event for each of them
+    $("[type=button]").click(function (click_data) {
+
+        //Loop trough all the values
+        for (i = 0; i < data.length; i++) {
+
+            //Check if id from button matches one of 
+            //person id
+            if (click_data.currentTarget.id === data[i]._id) {
+                buildModifyUI(data[i], data);
+                break;
+            }
+        }
+    });
+}
+
+//End Wait document ready event

@@ -25,10 +25,10 @@ app.use(bodyParser.urlencoded());
 
 app.use(function (req, res, next) {
         
-    console.log(req.method);
-    console.log("req.path: " +  req.path);
-    console.log("dirname: " + __dirname);
-    console.log(req.body);
+    //console.log(req.method);
+    //console.log("req.path: " +  req.path);
+    //console.log("dirname: " + __dirname);
+    //console.log(req.body);
     //console.log(database.Person);
     database.myFunction();
     //send request forward in stack
@@ -44,7 +44,7 @@ app.use('/persons', person);
 app.use('/horses', horse);
 app.use('/todos', todo);
 app.use('/tasks', hourcalendar);
-app.use('/testit', testi);
+//app.use('/testit', testi);
 app.use('/hours', hour);
 app.use('/paddocs', paddoc);
 app.use('/feeds', feed);
