@@ -1,18 +1,18 @@
 
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
+mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 
-var db = mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
+/*var db = mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 var db2 = mongoose.connect('mongodb://localhost:27017/pehtoori_2', connectionStatus);
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
+var dbStatus = mongoose.connection;
+dbStatus.on('error', console.error.bind(console, 'connection error:'));
+dbStatus.once('open', function (callback) {
   console.log("We are conneted again:");
 });
-console.log(db.host); // localhost
-console.log(db.port); // 27017
-console.log(db.name); // myDatabase
+console.log(dbStatus.host); // localhost
+console.log(dbStatus.port); // 27017
+console.log(dbStatus.name); // myDatabase*/
 
 /*
     Connetion callback for fail and ok cases
@@ -69,7 +69,7 @@ exports.Todo = Todo;
 
 var hourcalendi = mongoose.model('hourcalendar', {
     Päivä: String,
-    Henkilö: String,
+    Ilmoittaja: String,
     Tehtävä: String,
     Tunnit: Number
 },'hourcalendar');

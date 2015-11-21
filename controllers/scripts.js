@@ -27,6 +27,18 @@ if (location.pathname == "/horse.html" ) {
     var urlCurrent = "http://localhost:3000/healths";
 } else if (location.pathname == "/horsecalendar.html" ) {
     var urlCurrent = "http://localhost:3000/horsehours";
+} else if (location.pathname == "/addHealth.html" ) {
+    var urlCurrent = "http://localhost:3000/horses";
+} else if (location.pathname == "/addFeed.html" ) {
+    var urlCurrent = "http://localhost:3000/horses";
+} else if (location.pathname == "/addPaddoc.html" ) {
+    var urlCurrent = "http://localhost:3000/horses";
+}  else if (location.pathname == "/addHorsecalendar.html" ) {
+    var urlCurrent = "http://localhost:3000/horses";
+}  else if (location.pathname == "/addTodo.html" ) {
+    var urlCurrent = "http://localhost:3000/persons";
+}  else if (location.pathname == "/addHourcalendar.html" ) {
+    var urlCurrent = "http://localhost:3000/persons";
 } else {
     console.log("HTML FILE MISSING!");
 }
@@ -61,15 +73,14 @@ $(document).ready(function () {
     $.ajax(setting).done(buildTable);
     
 });
- 
-
+    
 /**
   *Creates a modify view for our application
   */
 // HTML5 solution function buildModifyUI(person_data, data) {
 function buildModifyUI(item_data, data) {
     "use strict";
-    console.log("data.length: " + data.length);
+    console.log("buildModifyUI data.length: " + data.length);
     var headers = Object.keys(data[0]);
     var row_html;
     console.log("headers.length: " + headers.length);
@@ -146,7 +157,7 @@ function buildModifyUI(item_data, data) {
             var temp = {
                 id: item_data._id,
                 Päivä: $("#Päivä").val(),
-                Henkilö: $("#Henkilö").val(),
+                Ilmoittaja: $("#Ilmoittaja").val(),
                 Tehtävä: $("#Tehtävä").val(),
                 Tunnit: $("#Tunnit").val(),
             };
@@ -240,7 +251,7 @@ function buildTable(data) {
     "use strict";
             
     console.log("buildTable: " + data);
-    console.log("data.length: " + data.length);
+    console.log("buildTable data.length: " + data.length);
     //Get all keys (attribute names) from json object
     //console.log(Object.keys(data[0]));
     $("tbody_oma").children().remove(); //HTML5 was tbody
@@ -273,28 +284,53 @@ function buildTable(data) {
             //Create row for data
             html = $("<tr></tr>");
 
-            //(headers.length-1) because of version numbering (_v) with mongodb
+            //(headers.length-2) because of version numbering (_v) with mongodb not needed to show end users
             if (urlCurrent == "http://localhost:3000/horses"  ) {
                 for (k = 1; k < (headers.length-2) ; k++) {
                     //Create data and add it to row
                     $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
                 }
                 $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(html);
+                
 
             } else {
                 for (k = 1; k < (headers.length-1) ; k++) {
                 //Create data and add it to row
                 $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
                 }
-
             }
             //Add "muokkaa" button
             $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" + data[i]._id + " value='Muokkaa'/></td>").appendTo(html);
 
             $(html).appendTo(".tbody_oma");
-        }
 
+        }
     }
+
+    //Add Horse names from horse table to class "horses_add"
+            console.log("add Horses data.length: " + data.length);
+               var html2 = "<div></div>";
+                    html2 += "<select name='Hevonen' class='form-control center-block center-value' style = 'width:300px;padding-left: 115px' >";
+                    //Fetch horse names from horse table dynamically
+                    for (i = 0; i < data.length; i++) {
+                                    html2 += "<option>" + data[i][headers[1]] + "</option>";
+                    }
+                    html2 += "</select>";
+            $(html2).appendTo(".horses_add");
+    //Add Horse names from horse table END
+    
+    //Add Person names from persons table to class "persons_add"
+            console.log("add Persons data.length: " + data.length);
+               var html2 = "<div></div>";
+                    html2 += "<select name='Ilmoittaja' class='form-control center-block center-value' style = 'width:300px;padding-left: 85px' >";
+                    //Fetch horse names from horse table dynamically
+                    for (i = 0; i < data.length; i++) {
+                                    html2 += "<option>" + data[i][headers[1]] + "</option>";
+                    }
+                    html2 += "</select>";
+            $(html2).appendTo(".person_add");
+    //Add Person names from persons table END
+    
 
     //Get all elements from DOM where element has
     //attribute 'type' with value 'button'. Then add
@@ -312,6 +348,23 @@ function buildTable(data) {
             }
         }
     });
+    
+    //Open sukuposti.net from horses main page
+        $("[value=Suku]").click(function (click_data) {
+
+            console.log("Open sukuposti");
+            console.log(click_data);
+            //Check if id from button matches on of horse id
+                if (click_data.currentTarget.id == "?") {
+                    
+                    console.log("Sukuposti hae ikkuna");
+                    window.open("http://www.sukuposti.net/hevonen/hae");
+                    
+                } else {
+                    
+                    window.open(click_data.currentTarget.id);
+                }                 
+        });
 }
 
 //End Wait document ready event

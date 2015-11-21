@@ -24,11 +24,12 @@
         
                 <form method="post" enctype="application/json" action="/horsehours">  
                     <h4 class="oma_h4">Aika:</h4>
-                    <input type="text" required  class="form-control text-center center-block" style = "width:300px" placeholder="Aika" name ="Aika"/>
+                    <input type="date" required  class="form-control text-center center-block" style = "width:300px" placeholder="Aika" name ="Aika"/>
                     <h4 class="oma_h4">Hevonen:</h4>
-                    <input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen" />
+                    <div class="horses_add"></div>
+                    <!--<input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen" />-->
                     <h4 class="oma_h4">Laji:</h4>
-                    <select name="Laji">
+                    <select name="Laji" class='form-control center-block center-value' style = 'width:300px;padding-left: 115px'>
                         <option value="Koulu">Koulu</option>
                         <option value="Este">Este</option>
                         <option value="Puomi">Puomi</option>

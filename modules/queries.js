@@ -338,7 +338,7 @@ exports.updateTask = function (req, res) {
     
     var updateData = {
         Päivä: req.body.Päivä,
-        Henkilö: req.body.Henkilö,
+        Ilmoittaja: req.body.Ilmoittaja,
         Tehtävä: req.body.Tehtävä,
         Tunnit: req.body.Tunnit
     };

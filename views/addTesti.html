@@ -4,7 +4,7 @@
         <meta charset="utf-8">
        <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>-->
 
-        <title>Testisivu</title>
+        <title>Hevosten Terveys</title>
         <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
@@ -12,7 +12,7 @@
         
     </head>
     <body>
-         <div class="entry">
+        <div class="entry">
             <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
         </div>
          
@@ -20,30 +20,23 @@
             <nav id="head">
             </nav>
             <section>
-                <h1 class="oma_h1">Lisää testi</h1>
-                <form method="post" enctype="application/json" action="/testit">        
-                    <h4 class="oma_h4">Testi_1:</h4>
-                    <input type="text" required  class="form-control text-center center-block" style = "width:300px" placeholder="Testi_1" name ="Testi_1"/>
-                    <h4 class="oma_h4">Testaaja:</h4>
-                    <input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Testaaja" name ="Testaaja" />
-                    <h4 class="oma_h4">Tulos:</h4>
-                    <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Tulos" name ="Tulos" /><br><br>
+                <h1 class="oma_h1">Lisää terveystietoja</h1>
+        
+                <form method="post" enctype="application/json" action="/healths">
+                    <h4 class="oma_h4">Hevonen: </h4>
+                        <input type="text" class="form-control text-center center-block" style = "width:300px"  class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen"/>
+                    <h4 class="oma_h4">Rokotukset: </h4>
+                        <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Rokotukset" name ="Rokotukset"/>
+                    <h4 class="oma_h4">Madotukset: </h4>
+                        <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Madotukset" name ="Madotukset"/>
+                    <h4 class="oma_h4">Hieronnat: </h4>
+                        <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Hieronnat" name ="Hieronnat"/>
+                    <h4 class="oma_h4">Yleistä: </h4>
+                        <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Yleistä" name ="Yleistä"/><br><br>
                     <input type="submit" class='btn btn-primary' value="Lisää"/>
                     <input Type="submit" class='btn btn-primary' value="Peruuta" onClick="history.go(-1);return true;"><br><br>
-
-
-                </form>     
+                </form>
             </section>
-            
-            <div class="groupMenu">
-                 <input class="default_group" type="hidden" value="group2" />
-                 <select name="gName0" id="groupDropDown">
-                      <option value="group1">Group 1</option>
-                      <option value="group2">Group 2</option>
-                      <option value="group3">Group 3</option>
-                 </select>
-            </div>
-               
         <script src="/lib/jquery-2.1.4.min.js"></script>
         <script src="/controllers/scripts.js"></script>
     </body>   
