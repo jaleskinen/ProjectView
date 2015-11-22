@@ -250,9 +250,9 @@ This method updates todo information to todo colletion
 exports.updateTodo = function (req, res) {
     
     var updateData = {
-        Ilmoitus: req.body.Ilmoitus,
-        Kuvaus: req.body.Kuvaus,
-        Toimenpide: req.body.Toimenpide
+        Aika: req.body.Aika,
+        Ilmoittaja: req.body.Ilmoittaja,
+        Ilmoitus: req.body.Ilmoitus
     };
     
     db.Todo.update({_id: req.body.id}, updateData, function (err) {
@@ -894,6 +894,18 @@ exports.updateFeed = function (req, res) {
 exports.registerUser = function(req,res){
     
     var user = new db.Users(req.body);
+    var mongoose = require('mongoose');
+    var regUser = user.username;
+    console.log('username: ' +  user.username);
+    
+    mongoose.disconnect(connectToDB)
+    
+        function connectToDB() {
+            mongoose.connect('mongodb://localhost:27017/pehtoori_' + regUser, function() {
+            console.log('Connected to: pehtoori_' + regUser);
+            })
+        };      
+
     user.save(function(err){
         
         if(err){
@@ -907,11 +919,29 @@ exports.registerUser = function(req,res){
 }
 
 exports.loginUser = function(req,res){
-    
     var searchObject = {
         username:req.body.username,
         password:req.body.password
     }
+    console.log('searchObject: ' +  searchObject.username);
+    var mongoose = require('mongoose');
+    var logUser = searchObject.username;
+    mongoose.disconnect(connectToDB)
+    
+        function connectToDB() {
+            mongoose.connect('mongodb://localhost:27017/pehtoori_' + logUser, function() {
+            console.log('Connected to: pehtoori_' + logUser);
+            })
+        }; 
+ 
+//var dbStatus = mongoose.connection;
+//dbStatus.on('error', console.error.bind(console, 'connection error:'));
+//dbStatus.once('open', function (callback) {
+//  console.log("We are conneted again:");
+//});
+//console.log(dbStatus.host); // localhost
+//console.log(dbStatus.port); // 27017
+//console.log(dbStatus.name); // myDatabase
     
     db.Users.find(searchObject,function(err,data){
         

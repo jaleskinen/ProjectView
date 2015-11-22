@@ -2,9 +2,6 @@
 <html lang="fi">
     <head>
         <meta charset="utf-8">
-        <!--
-        <meta charset="utf-8">/meta>
-        -->
         <title>Pehtoorin Etusivu</title>
         <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
@@ -14,62 +11,24 @@
     </head>
     <body>
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
-            <table>
-                <form action="main.html">
-                    <input type="submit" value="Etusivu">
-                </form>   
-                <form action="person.html">
-                    <input type="submit" value="Henkilöt">
-                </form>
-                <form action="horse.html">
-                    <input type="submit" value="Hevoset">
-                </form>
-                <form action="feed.html">
-                    <input type="submit" value="Ruokinta">
-                </form>
-                <form action="todo.html">
-                    <input type="submit" value="Ilmoitukset">
-                </form>
-                <form action="hourcalendar.html">
-                    <input type="submit" value="Henkilötunnit">
-                </form>
-                <form action="stablecalendar.html">
-                    <input type="submit" value="Tallikalenteri">
-                </form>
-                <form action="paddoc.html">
-                    <input type="submit" value="Tarhauskalenteri">
-                </form>
-                <form action="horsecalendar.html">
-                    <input type="submit" value="Hevostunnit">
-                </form>
-                <form action="health.html">
-                    <input type="submit" value="Terveys">
-                </form>
-<!--                <form action="testi.html">
-                    <input type="submit" value="Testi">
-                </form>-->
-                
-                <br><br>
-            </table>
+            <h1 class="oma_h1">
+                <div class="oma_a">
+                    Pehtoori
+                    <p id="theUser"> </p>
+                </div>
+            </h1>
+            <div id="includedMenu"></div>
         </div>
         
         <div class="omaentry">
 
-            <h2 class="oma_h2">Tallikirja</h2>
-
-            <h3 class="oma_h3" align="left">Pehtoorin tallikirja on hevostallin työntekijöille ja omistajille suunnattu sivusto, jonka tarkoitus on helpottaa tallin päivittäisten rutiinien hoitamista.
-                Tallikirjan avulla voit helposti pitää kirjaa ja suunnitella tallin, työntekijöiden sekä hevosten päivittäiseen toimintaan liittyviä asioita. 
-                Tallikirja on selainpohjainen ohjelmisto jonka käyttö onnistuu useimmilla päätelaittella, joilla on mahdollista saada yhteys internettiin.
-            </h3>
+            <div class="oma_presentation" id="includedPresentation"></div>
+            
             <br><br><input Type="submit" class='btn btn-primary' value="Log out" onClick="location.href='./index.html';"><br><br>
 
-
-
-
-    <footer><br><br><br>
+            <footer><br><br><br>
                 Copyright by Jarmo Leskinen
-        </footer>    
+            </footer>    
         </div>
         
         <script src="/lib/jquery-2.1.4.min.js"></script>

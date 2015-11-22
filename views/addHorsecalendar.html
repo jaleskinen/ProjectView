@@ -13,7 +13,12 @@
     </head>
     <body>
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
+            <h1 class="oma_h1">
+                <div class="oma_a">
+                    Pehtoori
+                    <p id="theUser"> </p>
+                </div>
+            </h1>
         </div>
          
         <div class="omaentry">
@@ -24,7 +29,7 @@
         
                 <form method="post" enctype="application/json" action="/horsehours">  
                     <h4 class="oma_h4">Aika:</h4>
-                    <input type="date" required  class="form-control text-center center-block" style = "width:300px" placeholder="Aika" name ="Aika"/>
+                    <input type="date" id="theDate" required  class="form-control text-center center-block" style = "width:300px; padding-left: 50px;" placeholder="Aika" name ="Aika"/>
                     <h4 class="oma_h4">Hevonen:</h4>
                     <div class="horses_add"></div>
                     <!--<input type="text"   class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen" />-->

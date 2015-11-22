@@ -4,8 +4,8 @@ mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 
 /*var db = mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 var db2 = mongoose.connect('mongodb://localhost:27017/pehtoori_2', connectionStatus);
-
-var dbStatus = mongoose.connection;
+*/
+/*var dbStatus = mongoose.connection;
 dbStatus.on('error', console.error.bind(console, 'connection error:'));
 dbStatus.once('open', function (callback) {
   console.log("We are conneted again:");
@@ -60,6 +60,7 @@ var Horse = mongoose.model('Horse', {
 exports.Horse = Horse;
 
 var Todo = mongoose.model('Todo', {
+    Aika: String,
     Ilmoittaja: String,
     Ilmoitus: String
 },'todo');
@@ -67,7 +68,7 @@ var Todo = mongoose.model('Todo', {
 //Using exports object you expose the data to other modules
 exports.Todo = Todo;
 
-var hourcalendi = mongoose.model('hourcalendar', {
+var Hourcalendar = mongoose.model('hourcalendar', {
     Päivä: String,
     Ilmoittaja: String,
     Tehtävä: String,
@@ -75,7 +76,7 @@ var hourcalendi = mongoose.model('hourcalendar', {
 },'hourcalendar');
 
 //Using exports object you expose the data to other modules
-exports.hourcalend = hourcalendi;
+exports.hourcalend = Hourcalendar;
 
 var Testi = mongoose.model('Testi', {
     Testi_1: String,

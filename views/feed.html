@@ -15,40 +15,13 @@
     <body>
         
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
-            <table>
-                <form action="main.html">
-                        <input type="submit" value="Etusivu">
-                </form>              
-                <form action="person.html">
-                    <input type="submit" value="Henkilöt">
-                </form>
-                <form action="horse.html">
-                    <input type="submit" value="Hevoset">
-                </form>
-                <form action="feed.html">
-                    <input type="submit" value="Ruokinta">
-                </form>
-                <form action="todo.html">
-                    <input type="submit" value="Ilmoitukset">
-                </form>
-                <form action="hourcalendar.html">
-                    <input type="submit" value="Henkilötunnit">
-                </form>
-                <form action="stablecalendar.html">
-                    <input type="submit" value="Tallikalenteri">
-                </form>
-                <form action="paddoc.html">
-                    <input type="submit" value="Tarhauskalenteri">
-                </form>
-                <form action="horsecalendar.html">
-                    <input type="submit" value="Hevostunnit">
-                </form>
-                <form action="health.html">
-                    <input type="submit" value="Terveys">
-                </form>
-                <br><br>     
-            </table>
+            <h1 class="oma_h1">
+                <div class="oma_a">
+                    Pehtoori
+                    <p id="theUser"> </p>
+                </div>
+            </h1>
+            <p id="includedMenu"></p>
         </div>
             
         <div class="omaentry">
@@ -65,7 +38,7 @@
                     </tbody>
                 </table>
                 
-                <table class ="oma_table">
+                <table>
                     <br>
                     <form action="addFeed.html">
                             <input class='btn btn-primary' type="submit" value="Lisää Ruokinta">

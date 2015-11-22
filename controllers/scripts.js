@@ -48,6 +48,7 @@ console.log(urlCurrent);
 //Wait document ready event
 $(document).ready(function () {
     "use strict";
+    
     /* HTML5 solution to search
     $("#search").click(function () {
         console.log("Search triggered");
@@ -71,6 +72,43 @@ $(document).ready(function () {
     };
     
     $.ajax(setting).done(buildTable);
+    
+    //Set default date to today, usage: <input type="date" id="theDate">
+    
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var today = year + "-" + month + "-" + day;       
+    $("#theDate").attr("value", today);
+    
+    console.log("username: " + localStorage.username);
+    var userSite = localStorage.username;
+    $('#theUser').text(userSite);
+    //date set end
+    
+    //Create common menu from menu.html
+    $.get("menu.html", function(data) {
+    $("#includedMenu").html(data);
+    });
+    //Create menu end
+    //Create common frontpage text from testi2.html
+    $.get(userSite + ".html", function(data) {
+    $("#includedPresentation").html(data);
+    });
+    //Create menu end
+    
+    //Send email START
+    $('#email_btn').click(function() {
+        $('#email_form').attr('action',
+                       'mailto:?subject=' +
+                       $('#subject').val() + '&body=' + $('#message').val());
+        $('#email_form').submit();
+    });
+    
+    //Send email END
     
 });
     
@@ -150,6 +188,7 @@ function buildModifyUI(item_data, data) {
          } else if (location.pathname == "/todo.html" ) {
             var temp = {
                 id: item_data._id,
+                Aika: $("#Aika").val(),
                 Ilmoittaja: $("#Ilmoittaja").val(),
                 Ilmoitus: $("#Ilmoitus").val(),
             };

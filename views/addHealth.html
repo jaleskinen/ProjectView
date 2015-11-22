@@ -13,7 +13,12 @@
     </head>
     <body>
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
+            <h1 class="oma_h1">
+                <div class="oma_a">
+                    Pehtoori
+                    <p id="theUser"> </p>
+                </div>
+            </h1>
         </div>
          
         <div class="omaentry">
@@ -26,14 +31,12 @@
                 <form method="post" enctype="application/json" action="/healths">
                     <h4 class="oma_h4">Hevonen: </h4>
                     <div class="horses_add"></div>
-                 
-  <!--                      <input type="text" class="form-control text-center center-block health_add" style = "width:300px"  class="form-control text-center center-block" style = "width:300px" placeholder="Hevonen" name ="Hevonen"/>-->
-                    <h4 class="oma_h4">Rokotukset: </h4>
-                        <input type="date"  class="form-control text-center center-block" style = "width:300px" placeholder="Rokotukset" name ="Rokotukset"/>
-                    <h4 class="oma_h4">Madotukset: </h4>
-                        <input type="date"  class="form-control text-center center-block" style = "width:300px" placeholder="Madotukset" name ="Madotukset"/>
-                    <h4 class="oma_h4">Hieronnat: </h4>
-                        <input type="date"  class="form-control text-center center-block" style = "width:300px" placeholder="Hieronnat" name ="Hieronnat"/>
+                    <h4 class="oma_h4">Rokotus: </h4>
+                        <input type="date" class="form-control text-center center-block" style = "width:300px; padding-left: 50px;" name ="Rokotukset"/>
+                    <h4 class="oma_h4">Madotus: </h4>
+                        <input type="date" class="form-control text-center center-block" style = "width:300px; padding-left: 50px;" name ="Madotukset"/>
+                     <h4 class="oma_h4">Hieronta: </h4>
+                        <input type="date" class="form-control text-center center-block" style = "width:300px; padding-left: 50px;" name ="Hieronnat"/>
                     <h4 class="oma_h4">Yleistä: </h4>
                         <input type="text"  class="form-control text-center center-block" style = "width:300px" placeholder="Yleistä" name ="Yleistä"/><br><br>
                     <input type="submit" class='btn btn-primary' value="Lisää"/>

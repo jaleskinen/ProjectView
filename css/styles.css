@@ -115,6 +115,11 @@ td, th {
     background-color: lightblue;
 }
 
+.oma_presentation{
+    color: #47acd7; /*Text color*/
+    font-size: 26px;
+}
+
 h2{
     font-size: 32px; 
     background: repeating-linear-gradient(
@@ -144,6 +149,7 @@ footer {
     margin-bottom: 1%;
     margin-left: 2%;
     margin-right: 2%;
+    height: 200px;
     border: 4px;
     border-style: solid;
     border-radius: 8px;
@@ -159,6 +165,8 @@ footer {
 .omaentry{
     text-align: center;
     color: #47acd7; /*border and text color*/
+    margin-top: 2%;
+    margin-bottom: 2%;
     margin-left: 5%;
     margin-right: 5%;
     border: 4px;
