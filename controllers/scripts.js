@@ -100,15 +100,9 @@ $(document).ready(function () {
     });
     //Create menu end
     
-    //Send email START
-    $('#email_btn').click(function() {
-        $('#email_form').attr('action',
-                       'mailto:?subject=' +
-                       $('#subject').val() + '&body=' + $('#message').val());
-        $('#email_form').submit();
-    });
-    
-    //Send email END
+    //Create footer text
+    $(".footer_text").html("<p>Copyright by Jarmo Leskinen</p>");
+    //Create footer tex
     
 });
     
@@ -132,7 +126,7 @@ function buildModifyUI(item_data, data) {
             $("<input type='text' class='form-control text-center center-block' style = 'width:300px' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
         }
         if (location.pathname == "/horse.html" ) {    
-            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input class='btn btn-primary btn-sm' style = 'width:100px' type='submit' value='Hae Linkki'></form>").appendTo(html);
+            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input class='btn btn-primary btn-sm' style = 'width:150px' type='submit' value='Hae Sukupostin Linkki'></form>").appendTo(html);
         };
         $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/> <input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/> <input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
     
@@ -329,8 +323,15 @@ function buildTable(data) {
                     //Create data and add it to row
                     $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
                 }
-                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(html);
-                
+                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id=" +  data[i][headers[k]] + " value='Suku'/></td>").appendTo(html);                
+
+            } else if (urlCurrent == "http://localhost:3000/persons"  ) {
+                for (k = 1; k < (headers.length-3) ; k++) {
+                    //Create data and add it to row
+                    $("<td align='center'>" + data[i][headers[k]] + "</td>").appendTo(html);
+                }
+                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id='email_btn' value='" + data[i][headers[5]] +"'/></td>").appendTo(html);
+                $("<td align='center'><input type='button' class='btn btn-primary btn-sm' id='www_btn' value='" + data[i][headers[6]] +"'/></td>").appendTo(html);
 
             } else {
                 for (k = 1; k < (headers.length-1) ; k++) {
@@ -369,16 +370,13 @@ function buildTable(data) {
                     html2 += "</select>";
             $(html2).appendTo(".person_add");
     //Add Person names from persons table END
-    
 
     //Get all elements from DOM where element has
     //attribute 'type' with value 'button'. Then add
     //event handler for click event for each of them
-    $("[type=button]").click(function (click_data) {
-
+    $("[value=Muokkaa]").click(function (click_data) {
         //Loop trough all the values
         for (i = 0; i < data.length; i++) {
-
             //Check if id from button matches one of 
             //person id
             if (click_data.currentTarget.id === data[i]._id) {
@@ -389,21 +387,38 @@ function buildTable(data) {
     });
     
     //Open sukuposti.net from horses main page
-        $("[value=Suku]").click(function (click_data) {
+    $("[value=Suku]").click(function (click_data) {
+        console.log("Open sukuposti");
+        console.log(click_data);
+        //Check if id from button matches on of horse id
+        if (click_data.currentTarget.id == "?") {
+            console.log("Sukuposti hae ikkuna");
+            window.open("http://www.sukuposti.net/hevonen/hae");     
+        } else {       
+            window.open(click_data.currentTarget.id);
+        }                 
+    });
+    
+    //Send email from person.html
+    $("[id=email_btn]").click(function (click_data) {
+        console.log("username: " + localStorage.username);
+        console.log("email button pressed");
+        console.log("click_data value: " +  click_data.currentTarget.value);
+        $('#email_form').attr('action', 'mailto:' + click_data.currentTarget.value + '?subject=' + "Pehtoori " + localStorage.username + " lähetti sinulle viestin");
+        $('#email_form').submit();
 
-            console.log("Open sukuposti");
-            console.log(click_data);
-            //Check if id from button matches on of horse id
-                if (click_data.currentTarget.id == "?") {
-                    
-                    console.log("Sukuposti hae ikkuna");
-                    window.open("http://www.sukuposti.net/hevonen/hae");
-                    
-                } else {
-                    
-                    window.open(click_data.currentTarget.id);
-                }                 
-        });
+    });
+    
+    //Open WWW page from person.html
+    $("[id=www_btn]").click(function (click_data) {
+        console.log("www button pressed");
+        //Check if www address is available
+        if ( click_data.currentTarget.value == "") {
+            alert("!!! WWW Sivua ei ole määritelty !!!");
+        } else {          
+            window.open("http://" + click_data.currentTarget.value);
+        }   
+    });
 }
 
 //End Wait document ready event

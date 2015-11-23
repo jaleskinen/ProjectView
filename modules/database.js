@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
+//mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 
 /*var db = mongoose.connect('mongodb://localhost:27017/pehtoori', connectionStatus);
 var db2 = mongoose.connect('mongodb://localhost:27017/pehtoori_2', connectionStatus);
