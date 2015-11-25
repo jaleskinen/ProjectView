@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "MyTestView";
+}
+
+<h2>MyTestView</h2>
+
+<p>!! Kokeilu !!
+    for next loop jossa 10 elementtiä
+    kirjoittakaa tämän viewn URL:sta sen sijainti (koko url) sekä virtual path
+</p>
+
+@{ 
+    var virtualPath = Request.Path;
+    var URLPath = Request.PhysicalPath;
+
+}
+
+@for (int i=0; i< 10; i++)
+{
+    <p>@virtualPath</p>
+    <p>@URLPath</p>
+}
