@@ -3,8 +3,7 @@
 /*global $ */
 
 //These variables are shown to every function
-var i, html, k;
-
+var i, html, k; 
 
 console.log(location.pathname);
 if (location.pathname == "/horse.html" ) {
@@ -103,7 +102,7 @@ $(document).ready(function () {
     //Create footer text
     $(".footer_text").html("<p>Copyright by Jarmo Leskinen</p>");
     //Create footer tex
-    
+        
 });
     
 /**
@@ -282,8 +281,7 @@ function buildModifyUI(item_data, data) {
 
 function buildTable(data) {
     "use strict";
-            
-    console.log("buildTable: " + data);
+    
     console.log("buildTable data.length: " + data.length);
     //Get all keys (attribute names) from json object
     //console.log(Object.keys(data[0]));
@@ -346,6 +344,7 @@ function buildTable(data) {
 
         }
     }
+    
 
     //Add Horse names from horse table to class "horses_add"
             console.log("add Horses data.length: " + data.length);
