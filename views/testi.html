@@ -2,22 +2,68 @@
 <html lang="fi">
     <head>
         <meta charset="utf-8">
-
-        <!--
-        <meta charset="utf-8">/meta>
-        -->
         <title>Hevosten Terveys</title>
         <link href="/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script        
         
     </head>
     <body>
         <div class="entry">
-            <h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>
-            <table>
+            <!--<h1 class="oma_h1"><a class="oma_a" href="./main.html">Pehtoori</a></h1>-->
+                 <nav class="navbar navbar-inverse ">
+                  <div class="container-fluid">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                      </button>
+                      <a class="navbar-brand" href="./main.html">Pehtoori</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav">
+                        <!-- <li class="active"><a href="#">Home</a></li> -->
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hevoset
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="./person.html">Esittely</a></li>
+                            <li><a href="./hourcalendar.html">Ruokinta</a></li>
+                            <li><a href="./paddoc.html">Tarhaus</a></li>
+                            <li><a href="./horsecalendar.html">Tunnit</a></li>
+                            <li><a href="./health.html">Terveys</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Henkilöt
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="./person.html">Yhteystiedot</a></li>
+                            <li><a href="./hourcalendar.html">Henkilötunnit</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Talli
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="./todo.html">Ilmoitukset</a></li>
+                            <li><a href="./stablecalendar.html">Tuntikalenteri</a></li>
+                          </ul>
+                        </li>    
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+                        
+            <!--<table>
                 <form action="main.html">
                     <input type="submit" value="Etusivu">
                 </form>              
@@ -49,7 +95,7 @@
                     <input type="submit" value="Terveys">
                 </form>
                 <br><br>     
-            </table>
+            </table>-->
         </div>
         
         <div class="omaentry">

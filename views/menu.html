@@ -1,4 +1,4 @@
-<br>
+<!--<br>
 <a class='btn btn-primary btn-sm' href="main.html">Etusivu</a>
 <a class='btn btn-primary btn-sm' href="person.html">Henkilöt</a>
 <a class='btn btn-primary btn-sm' href="horse.html">Hevoset</a>
@@ -9,7 +9,56 @@
 <a class='btn btn-primary btn-sm' href="paddoc.html">Tarhauskalenteri</a>
 <a class='btn btn-primary btn-sm' href="horsecalendar.html">Hevostunnit</a>
 <a class='btn btn-primary btn-sm' href="health.html">Terveys</a>
-<br><br>
+<br><br>-->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="./main.html">Pehtoori</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hevoset
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="./horse.html">Esittely</a></li>
+            <li><a href="./feed.html">Ruokinta</a></li>
+            <li><a href="./paddoc.html">Tarhaus</a></li>
+            <li><a href="./horsecalendar.html">Tunnit</a></li>
+            <li><a href="./health.html">Terveys</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Henkilöt
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="./person.html">Yhteystiedot</a></li>
+            <li><a href="./hourcalendar.html">Henkilötunnit</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Talli
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="./todo.html">Ilmoitukset</a></li>
+            <li><a href="./stablecalendar.html">Tuntikalenteri</a></li>
+          </ul>
+        </li>    
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="./index.html"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
   <!--         <table class ="oma_table">
                 <th><form action="main.html">
