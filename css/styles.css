@@ -15,10 +15,14 @@ body {
       #502115 10px,
       #333 20px
     );*/
-      background: linear-gradient(to right, rgba(0,0,20,0.5), rgba(50, 50, 50, 0.9));
+    /*  background: linear-gradient(to right, rgba(44, 44, 72, 0.9), rgba(20, 17, 51, 0.9));*/
+    background: linear-gradient(to right, #811A1A 0%,#200 100%);
 } 
 
 /*use element selector to change h1 elements styles from default values*/
+.navbar-inverse-oma{
+    background-image: linear-gradient(to bottom,#811A1A 0,#200 100%)
+}
 
 .oma_h1{
     color: #47acd7; /*Text color*/

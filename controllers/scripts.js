@@ -259,6 +259,7 @@ function buildModifyUI(item_data, data) {
             data: temp
             
         }).done(function (data) {location.reload(true)});  //reload page after update done
+
         
  /*HTML5 solution
         $.ajax({
