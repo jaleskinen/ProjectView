@@ -108,7 +108,7 @@ $(document).ready(function () {
     //Create footer text
     console.log("Create footer text");
     $(".footer_text").html("<p>Copyright by Jarmo Leskinen</p>");
-    //Create footer tex
+    //Create footer text end
         
 });
     
