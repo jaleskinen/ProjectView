@@ -896,7 +896,7 @@ exports.registerUser = function(req,res){
     var user = new db.Users(req.body);
     var mongoose = require('mongoose');
     var regUser = user.username;
-    console.log('username: ' +  user.username);
+    console.log('Register username: ' +  user.username);
     
     mongoose.disconnect(connectToDB)
     
@@ -926,6 +926,7 @@ exports.loginUser = function(req,res){
     console.log('searchObject: ' +  searchObject.username);
     var mongoose = require('mongoose');
     var logUser = searchObject.username;
+    console.log('logUser' + logUser);
     mongoose.disconnect(connectToDB)
     
         function connectToDB() {

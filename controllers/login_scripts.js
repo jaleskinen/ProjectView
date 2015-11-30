@@ -24,6 +24,7 @@ function loginHandler(event) {
     
     localStorage.username = $("#username").val();
     sessionStorage.user = $("#username").val();
+    console.log("loginHandler localStorage.username: " + localStorage.username);
 
 
     //Send login request to server

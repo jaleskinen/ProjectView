@@ -82,24 +82,31 @@ $(document).ready(function () {
     if (day < 10) day = "0" + day;
     var today = year + "-" + month + "-" + day;       
     $("#theDate").attr("value", today);
-    
-    console.log("username: " + localStorage.username);
-    var userSite = localStorage.username;
-    $('#theUser').text(userSite);
+    console.log("Today: " + today);
     //date set end
     
+    //Check username from localStorage
+    console.log("Doc ready, username: " + localStorage.username);
+    var userSite = localStorage.username;
+    $('#theUser').text(userSite);
+    //Check username end
+    
     //Create common menu from menu.html
+    console.log("Create common menu");
     $.get("menu.html", function(data) {
     $("#includedMenu").html(data);
     });
     //Create menu end
-    //Create common frontpage text from testi2.html
+    
+    //Create frontpage text
+    console.log("Create frontpage text");
     $.get(userSite + ".html", function(data) {
     $("#includedPresentation").html(data);
     });
     //Create menu end
     
     //Create footer text
+    console.log("Create footer text");
     $(".footer_text").html("<p>Copyright by Jarmo Leskinen</p>");
     //Create footer tex
         
@@ -118,16 +125,26 @@ function buildModifyUI(item_data, data) {
 
     var html = $("<div></div>");
     $("<h1 class='oma_h1'>Muokkaa/poista tietoja</h1>").appendTo(html);
-    for (var k = 1; k < (headers.length-1) ; k++) {
-        
-            //Create data and add it to row          
+    if (location.pathname == "/horsecalendar.html" || location.pathname == "/hourcalendar.html") {
+        for (var k = 1; k < (headers.length-2) ; k++) {
+            //Create data and add it to row
             $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(html);
             $("<input type='text' class='form-control text-center center-block' style = 'width:300px' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
-        }
-        if (location.pathname == "/horse.html" ) {    
-            $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input class='btn btn-primary btn-sm' style = 'width:150px' type='submit' value='Hae Sukupostin Linkki'></form>").appendTo(html);
-        };
-        $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/> <input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/> <input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
+            }
+        $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(html);
+        $("<input type='number' step='0.5' class='form-control text-center center-block' style = 'width:300px' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
+    } else {
+        for (var k = 1; k < (headers.length-1) ; k++) {
+            //Create data and add it to row
+            $("<h4 class ='oma_h4'>" + [headers[k]] + "</h4>").appendTo(html);
+            $("<input type='text' class='form-control text-center center-block' style = 'width:300px' style='text-align: center' value='" + data[i][headers[k]] + "' id ='" + [headers[k]] + "'/><br>").appendTo(html);
+            }
+   }
+    
+    if (location.pathname == "/horse.html" ) {    
+        $("<form target='_blank' action='http://www.sukuposti.net/hevonen/hae'><input class='btn btn-primary btn-sm' style = 'width:150px' type='submit' value='Hae Sukupostin Linkki'></form>").appendTo(html);
+    };
+    $("<br><br><input type='button' class='btn btn-primary btn-sm' value='Update'" + "id = 'update'/> <input type='button' class='btn btn-primary btn-sm' value='Delete' id = 'delete'/> <input type='button' class='btn btn-primary btn-sm' value='Cancel' id = 'cancel'/>").appendTo(html);   
     
     
     $("section").html(html); //HTML5 was "body"
@@ -259,8 +276,7 @@ function buildModifyUI(item_data, data) {
             data: temp
             
         }).done(function (data) {location.reload(true)});  //reload page after update done
-
-        
+      
  /*HTML5 solution
         $.ajax({
             method: "PUT",
@@ -294,7 +310,7 @@ function buildTable(data) {
         var headers = Object.keys(data[0]);
         console.log("headers.length: " + headers.length);
         //Create row for headers
-       html = $("<tr></tr>");
+        html = $("<tr></tr>");
         for (i = 1; i < headers.length - 1; i++) {
             //Create header and add it to orw
             $("<th class='th_oma'>" + headers[i] + "</th>").appendTo(html);
@@ -346,29 +362,28 @@ function buildTable(data) {
         }
     }
     
-
     //Add Horse names from horse table to class "horses_add"
-            console.log("add Horses data.length: " + data.length);
-               var html2 = "<div></div>";
-                    html2 += "<select name='Hevonen' class='form-control center-block center-value' style = 'width:300px;padding-left: 115px' >";
-                    //Fetch horse names from horse table dynamically
-                    for (i = 0; i < data.length; i++) {
-                                    html2 += "<option>" + data[i][headers[1]] + "</option>";
-                    }
-                    html2 += "</select>";
-            $(html2).appendTo(".horses_add");
+    console.log("add Horses data.length: " + data.length);
+    var html2 = "<div></div>";
+    html2 += "<select name='Hevonen' class='form-control center-block center-value' style = 'width:300px;padding-left: 115px' >";
+    //Fetch horse names from horse table dynamically
+    for (i = 0; i < data.length; i++) {
+        html2 += "<option>" + data[i][headers[1]] + "</option>";
+    }
+    html2 += "</select>";
+    $(html2).appendTo(".horses_add");
     //Add Horse names from horse table END
     
     //Add Person names from persons table to class "persons_add"
-            console.log("add Persons data.length: " + data.length);
-               var html2 = "<div></div>";
-                    html2 += "<select name='Ilmoittaja' class='form-control center-block center-value' style = 'width:300px;padding-left: 85px' >";
-                    //Fetch horse names from horse table dynamically
-                    for (i = 0; i < data.length; i++) {
-                                    html2 += "<option>" + data[i][headers[1]] + "</option>";
-                    }
-                    html2 += "</select>";
-            $(html2).appendTo(".person_add");
+    console.log("add Persons data.length: " + data.length);
+    var html2 = "<div></div>";
+    html2 += "<select name='Ilmoittaja' class='form-control center-block center-value' style = 'width:300px;padding-left: 85px' >";
+    //Fetch horse names from horse table dynamically
+    for (i = 0; i < data.length; i++) {
+        html2 += "<option>" + data[i][headers[1]] + "</option>";
+    }
+    html2 += "</select>";
+    $(html2).appendTo(".person_add");
     //Add Person names from persons table END
 
     //Get all elements from DOM where element has

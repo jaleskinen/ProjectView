@@ -44,7 +44,7 @@ exports.Person = Person;
 var User = mongoose.model('User',{
     username:{type:String,unique:true},
     password:String,
-    users:[{type:mongoose.Schema.Types.ObjectId,ref:'Person'}]
+    //users:[{type:mongoose.Schema.Types.ObjectId,ref:'Person'}]  //Is this needed or not?? One username/database
 });
 //Using exports object you expose the data to other modules
 exports.Users = User;

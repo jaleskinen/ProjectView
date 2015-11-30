@@ -10,19 +10,21 @@ var express = require("express");
 
 var router = express.Router();
 
+/* Not used yet
 
 router.get('/:username',function(req,res){
     
     query.getUsersByUsername(req,res);
 });
+*/
 
-//This router handles a request to uri
+//This router handles a post login request to uri
 router.post('/login',function(req,res){
     
     query.loginUser(req,res);
 });
 
-//This router handles a request to uri
+//This router handles a post register request to uri
 router.post('/register',function(req,res){
     
     query.registerUser(req,res);
